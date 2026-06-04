@@ -1,7 +1,7 @@
 markdown
 <div align="center">
   
-# 🧠 NeuroScan AI
+# 🧠 Brain Tumor Detection using Deep Learning
 
 ### *Advanced Brain Tumor Classification using Deep Learning*
 
