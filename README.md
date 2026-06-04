@@ -1,64 +1,145 @@
-# NeuroScan AI
+**TLDR:** Here’s a clean, copy-paste ready README.
 
-Brain tumor MRI classifier. VGG16 · 4 classes · FastAPI + React.
+```md
+# 🧠 Brain Tumor Detection using Deep Learning
 
-## Structure
+> Brain Tumor MRI Classifier using Deep Learning (VGG16)  
+> 4-Class Prediction · FastAPI Backend · React Frontend
+
+---
+
+## 🚀 Overview
+
+NeuroScan AI is an AI system that classifies brain MRI scans into:
+
+- 🟣 Glioma  
+- 🔵 Meningioma  
+- 🟢 No Tumor  
+- 🟡 Pituitary  
+
+Built using **VGG16 transfer learning** with a full-stack deployment (FastAPI + React).
+
+---
+
+## 🏗️ Project Structure
 
 ```
-neuroscan/
-├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── brain_tumour_model_fixed.h5
-└── frontend/
-    ├── package.json
-    └── src/
-        ├── index.js
-        └── App.jsx
-```
 
-## Run the backend
+MRI/
+├── Jupyter_nootbook_code/
+│   └── brain_tumour_detection_notebook.ipynb
+├── web_app/
+│   ├── backend/
+│   │   ├── main.py
+│   │   └── fix_model.py
+│   └── frontend/
+│       ├── src/
+│       ├── public/
+│       └── package.json
+├── requirements.txt
+├── .gitignore
+└── README.md
+
+````
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer | Tech |
+|------|------|
+| 🧠 Model | VGG16 (Transfer Learning) |
+| ⚡ Backend | FastAPI |
+| 🌐 Frontend | React.js |
+| 📦 API | REST |
+| 🧪 DL Framework | TensorFlow / Keras |
+
+---
+
+## 🧠 Model Details
+
+| Feature | Value |
+|--------|------|
+| Input Size | 128 × 128 × 3 |
+| Architecture | VGG16 |
+| Classes | 4 |
+| Output | Softmax probabilities |
+
+---
+
+## 🔌 API Endpoint
+
+### POST `/predict`
+
+Upload MRI image via `file`.
+
+#### Response
+
+```json
+{
+  "top": {
+    "label": "Glioma",
+    "probability": 94.2
+  },
+  "all": [
+    { "label": "Glioma", "probability": 94.2 },
+    { "label": "No Tumor", "probability": 3.1 },
+    { "label": "Pituitary", "probability": 1.9 },
+    { "label": "Meningioma", "probability": 0.8 }
+  ]
+}
+````
+
+---
+
+## ▶️ Run Backend
 
 ```bash
-cd backend
+cd web_app/backend
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
 ```
 
-API available at http://localhost:8000  
-Docs at http://localhost:8000/docs
+API: [http://localhost:8000](http://localhost:8000)
+Docs: [http://localhost:8000/docs](http://localhost:8000/docs)
 
-## Run the frontend
+---
+
+## 🌐 Run Frontend
 
 ```bash
-cd frontend
+cd web_app/frontend
 npm install
 npm start
 ```
 
-Opens at http://localhost:3000
+App: [http://localhost:3000](http://localhost:3000)
 
-## Model
+---
 
-| | |
-|---|---|
-| Architecture | VGG16 (transfer learning) |
-| Input | 128 × 128 × 3 |
-| Classes | Glioma, Meningioma, No Tumor, Pituitary |
-| Output | Softmax over 4 classes |
+## 📌 Features
 
-## API
+* Brain tumor classification using CNN (VGG16)
+* FastAPI inference backend
+* React frontend UI
+* Probability-based predictions
+* End-to-end ML pipeline
 
-`POST /predict` — multipart form, field `file` (image)
+---
 
-```json
-{
-  "top": { "label": "Glioma", "probability": 94.2 },
-  "all": [
-    { "label": "Glioma",     "probability": 94.2 },
-    { "label": "No Tumor",   "probability":  3.1 },
-    { "label": "Pituitary",  "probability":  1.9 },
-    { "label": "Meningioma", "probability":  0.8 }
-  ]
-}
+## ⚠️ Disclaimer
+
+This project is for **educational purposes only** and not for medical diagnosis.
+
+---
+
+## 👨‍💻 Author
+
+NeuroScan AI Project
+
+```
+
+---
+
+If you want, next upgrade is making this README look like a **GitHub trending project (badges + GIF + live demo section)**.
 ```
